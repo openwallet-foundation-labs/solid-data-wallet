@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="66px" height="65px" viewBox="0 0 66 65" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Logo</title>
+    <defs>
+        <ellipse id="path-1" cx="32.2654485" cy="32.2601758" rx="32.2654485" ry="32.2601758"></ellipse>
+    </defs>
+    <g id="Wallet-MVP-Resize" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Wallet-MVP-Prototype-For-Development" transform="translate(-162, -263)">
+            <g id="Logo" transform="translate(87, 263)">
+                <g transform="translate(75.7163, 0)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#1C2033" xlink:href="#path-1"></use>
+                    <polygon id="Star" fill="#FFFFFF" mask="url(#mask-2)" points="33.3062694 53.0731924 12.5057771 64.0068713 16.4783176 40.8489677 -0.349634181 24.4484493 22.9060232 21.0697567 33.3062694 0 43.7065156 21.0697567 66.962173 24.4484493 50.1342212 40.8489677 54.1067618 64.0068713"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

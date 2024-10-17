@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="155px" height="32px" viewBox="0 0 155 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Logo</title>
+    <defs>
+        <ellipse id="path-1" cx="16.1602514" cy="16" rx="16.1602514" ry="16"></ellipse>
+    </defs>
+    <g id="Logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#1C2033" xlink:href="#path-1"></use>
+                <polygon id="Star" fill="#FFFFFF" mask="url(#mask-2)" points="16.6815498 26.3225806 6.26355779 31.7453305 8.25321723 20.259762 -0.175115379 12.1256373 11.4725538 10.4499154 16.6815498 0 21.8905458 10.4499154 33.538215 12.1256373 25.1098824 20.259762 27.0995419 31.7453305"></polygon>
+            </g>
+            <text id="Future-Co" font-family="ReadexPro-Regular_Bold, Readex Pro" font-size="18.1484787" font-weight="bold" fill="#1C2033">
+                <tspan x="45.101464" y="21.7010823">FUTURE CO</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

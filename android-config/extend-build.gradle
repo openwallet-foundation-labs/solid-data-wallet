@@ -1,0 +1,4 @@
+if(project.hasProperty("inrupt.wallet.frontend.signing")
+    && new File(project.property("inrupt.wallet.frontend.signing")).exists()) {
+  apply from: project.property("inrupt.wallet.frontend.signing");
+}

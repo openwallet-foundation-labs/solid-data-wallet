@@ -1,0 +1,46 @@
+{
+  "cli": {
+    "version": "^12.3.0",
+    "appVersionSource": "remote",
+    "requireCommit": true
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_LOGIN_URL" : "https://datawallet.inrupt.com/oauth2/authorization/wallet-app",
+        "EXPO_PUBLIC_WALLET_API": "https://datawallet.inrupt.com"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_LOGIN_URL" : "https://datawallet.inrupt.com/oauth2/authorization/wallet-app",
+        "EXPO_PUBLIC_WALLET_API": "https://datawallet.inrupt.com"
+      },
+      "android": {
+        "image": "latest"
+      },
+      "ios": {
+        "image": "latest"
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "env": {
+        "EXPO_PUBLIC_LOGIN_URL" : "https://datawallet.inrupt.com/oauth2/authorization/wallet-app",
+        "EXPO_PUBLIC_WALLET_API": "https://datawallet.inrupt.com"
+      },
+      "android": {
+        "image": "latest"
+      },
+      "ios": {
+        "image": "latest"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

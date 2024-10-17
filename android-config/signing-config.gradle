@@ -1,0 +1,18 @@
+android {
+  signingConfigs {
+    release {
+      if (project.hasProperty('inrupt.wallet.frontend.keystore.file')) {
+        storeFile file(project.property('inrupt.wallet.frontend.keystore.file'))
+        storePassword project.property('inrupt.wallet.frontend.keystore.password')
+        keyAlias project.property('inrupt.wallet.frontend.key.alias')
+        keyPassword project.property('inrupt.wallet.frontend.key.password')
+      }
+    }
+  }
+
+  buildTypes {
+    release {
+      signingConfig signingConfigs.release
+    }
+  }
+}
