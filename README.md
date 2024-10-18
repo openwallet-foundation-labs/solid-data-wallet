@@ -1,4 +1,4 @@
-# Inrupt Data Wallet
+# Solid Data Wallet
 
 This project produces a mobile React Native application for use with the Inrupt Data Wallet service.
 This README provides information on:
