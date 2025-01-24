@@ -1,0 +1,20 @@
+version: 2
+updates:
+  # Enable dependency updates
+  - package-ecosystem: "npm"
+    directory: "/"
+    # Check the npm registry for updates once a week
+    schedule:
+      interval: "monthly"
+    labels:
+      - "dependencies"
+      - "npm"
+    groups:
+      external-types:
+        patterns:
+          - "@types/*"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
