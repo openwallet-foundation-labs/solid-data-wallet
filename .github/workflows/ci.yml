@@ -1,0 +1,59 @@
+name: Solid Data Wallet CI
+
+on:
+  pull_request: {}
+  push:
+    branches: [ main ]
+
+env:
+  CI: true
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    uses: inrupt/typescript-sdk-tools/.github/workflows/reusable-lint.yml@v3
+
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: npm
+      - run: npm ci
+      - run: npm run test:snapshot
+      # Upload coverage for sonarqube
+      - uses: actions/upload-artifact@v4
+        with:
+          name: code-coverage
+          path: coverage/
+
+  sonarqube:
+    if: ${{ github.actor != 'dependabot[bot]' && secrets.SONAR_TOKEN && secrets.SONAR_ORGANIZATION && secrets.SONAR_PROJECT_KEY }}
+    needs: [ unit-tests ]
+    name: SonarQube
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - uses: actions/download-artifact@v4
+        with:
+          name: code-coverage
+          path: coverage/
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v4
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+            -Dsonar.sources=api,app,components,constants,hooks,types,utils
+            -Dsonar.typescript.tsconfigPath=.
+            -Dsonar.javascript.lcov.reportPaths=./coverage/lcov.info
+            -Dsonar.exclusions=**/*.test.tsx?
