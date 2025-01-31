@@ -32,7 +32,7 @@ jobs:
           name: code-coverage
           path: coverage/
 
-  sonarqube:
+  sonar:
     if: ${{ github.actor != 'dependabot[bot]' && secrets.SONAR_TOKEN && secrets.SONAR_ORGANIZATION && secrets.SONAR_PROJECT_KEY }}
     needs: [ unit-tests ]
     name: SonarQube
