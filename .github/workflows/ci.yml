@@ -33,6 +33,7 @@ jobs:
           path: coverage/
 
   sonar:
+    if: ${{ github.actor != 'dependabot[bot]' && vars.SONAR_ORGANIZATION && vars.SONAR_PROJECT_KEY }}
     needs: [ unit-tests ]
     name: SonarQube
     runs-on: ubuntu-latest
@@ -45,14 +46,13 @@ jobs:
           name: code-coverage
           path: coverage/
       - name: SonarQube Scan
-        if: ${{ github.actor != 'dependabot[bot]' && secrets.SONAR_TOKEN && secrets.SONAR_ORGANIZATION && secrets.SONAR_PROJECT_KEY }}
         uses: SonarSource/sonarqube-scan-action@v4
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.organization=${{ SONAR_ORGANIZATION }}
-            -Dsonar.projectKey=${{ SONAR_PROJECT_KEY }}
+            -Dsonar.organization=${{ vars.SONAR_ORGANIZATION }}
+            -Dsonar.projectKey=${{ vars.SONAR_PROJECT_KEY }}
             -Dsonar.sources=api,app,components,constants,hooks,types,utils
             -Dsonar.typescript.tsconfigPath=.
             -Dsonar.javascript.lcov.reportPaths=./coverage/lcov.info
