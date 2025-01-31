@@ -33,7 +33,6 @@ jobs:
           path: coverage/
 
   sonar:
-    if: ${{ github.actor != 'dependabot[bot]' && SONAR_ORGANIZATION && SONAR_PROJECT_KEY }}
     needs: [ unit-tests ]
     name: SonarQube
     runs-on: ubuntu-latest
