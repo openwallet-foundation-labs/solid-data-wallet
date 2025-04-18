@@ -16,6 +16,7 @@
 import * as SecureStore from "expo-secure-store";
 import { router } from "expo-router";
 import { handleErrorResponse } from "@inrupt/solid-client-errors";
+import { DEFAULT_WALLET_API } from "@/constants/defaults";
 
 export const SESSION_KEY = "session";
 
@@ -45,7 +46,7 @@ export const makeApiRequest = async <T>(
   }
 
   const response = await fetch(
-    `${process.env.EXPO_PUBLIC_WALLET_API}/${endpoint}`,
+    new URL(endpoint, process.env.EXPO_PUBLIC_WALLET_API ?? DEFAULT_WALLET_API),
     options
   );
 

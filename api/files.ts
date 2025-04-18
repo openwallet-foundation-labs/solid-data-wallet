@@ -19,6 +19,7 @@ import type { WalletFile } from "@/types/WalletFile";
 import { handleErrorResponse } from "@inrupt/solid-client-errors";
 import { utf8EncodeResourceName } from "@/utils/fileUtils";
 import { makeApiRequest } from "./apiRequest";
+import { DEFAULT_WALLET_API } from "@/constants/defaults";
 
 interface FileObject {
   uri: string;
@@ -67,7 +68,10 @@ export const postFile = async (fileMetadata: FileObject): Promise<void> => {
   let response: Response;
   try {
     response = await fetch(
-      new URL("wallet", process.env.EXPO_PUBLIC_WALLET_API),
+      new URL(
+        "wallet",
+        process.env.EXPO_PUBLIC_WALLET_API ?? DEFAULT_WALLET_API
+      ),
       {
         method: "PUT",
         body: formData,
