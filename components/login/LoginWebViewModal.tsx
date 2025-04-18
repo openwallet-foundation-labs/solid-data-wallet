@@ -39,8 +39,8 @@ const LoginWebViewModal: React.FC<LoginWebViewModalProps> = ({
   onLogoutSuccess,
   requestMode = "blank",
 }) => {
-  const BASE_URL = process.env.EXPO_PUBLIC_WALLET_API ?? DEFAULT_LOGIN_URL;
-  const LOGIN_URL = process.env.EXPO_PUBLIC_LOGIN_URL ?? DEFAULT_WALLET_API;
+  const BASE_URL = process.env.EXPO_PUBLIC_WALLET_API ?? DEFAULT_WALLET_API;
+  const LOGIN_URL = process.env.EXPO_PUBLIC_LOGIN_URL ?? DEFAULT_LOGIN_URL;
   const LOGOUT_URL = `${BASE_URL}/logout`;
   const LOGIN_SUCCESS_URL = `${BASE_URL}/login/success`;
 
@@ -87,7 +87,6 @@ const LoginWebViewModal: React.FC<LoginWebViewModalProps> = ({
   }
 
   const isVisible = requestMode === "login";
-
   return (
     <Modal visible={isVisible} transparent>
       <SafeAreaView style={[styles.container]}>
