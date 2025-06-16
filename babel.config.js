@@ -16,5 +16,12 @@
 
 // This is used by Jest to parse JSX.
 module.exports = {
-  presets: ["babel-preset-expo"],
+  presets: [
+    [
+      "babel-preset-expo",
+      {
+        unstable_transformImportMeta: true,
+      },
+    ],
+  ],
 };
