@@ -1,3 +1,7 @@
+# This repo has been archived
+
+[Archived on April 9, 2026 at the request of the Maintainers and approved by the OWF TAC at the April 1, 2026 TAC meeting](https://zoom.us/rec/share/3IZFgIhXLgR8PNyxthKP_zFejP5Hr6aUQGR7vtj7GT_8GHFm8jhpm6nad_7NT9c.m-OKMgBawagzp-k4)
+
 # Solid Data Wallet
 
 This project produces a mobile React Native application for use with the Inrupt Data Wallet service.
