@@ -77,7 +77,7 @@ const FileList: React.FC<FileListProps> = ({
     <TouchableOpacity onPress={() => onPressDetail(item)}>
       <View style={styles.fileContainer}>
         <FontAwesomeIcon
-          icon={getIconFile(item.fileName, item.isRDFResource)}
+          icon={getIconFile(item.identifier, item.isRDFResource)}
           size={24}
         />
 

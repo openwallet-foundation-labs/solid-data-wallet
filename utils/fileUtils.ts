@@ -16,7 +16,7 @@
 import { faFile } from "@fortawesome/free-solid-svg-icons/faFile";
 import { faImage } from "@fortawesome/free-solid-svg-icons/faImage";
 import { faIdCard } from "@fortawesome/free-solid-svg-icons/faIdCard";
-import { faWallet } from "@fortawesome/free-solid-svg-icons/faWallet";
+import { faFolder } from "@fortawesome/free-solid-svg-icons/faFolder";
 import { AccessRequestMode } from "@/types/enums";
 import type { WalletFile } from "@/types/WalletFile";
 
@@ -39,16 +39,17 @@ export const addSpacesToCamelCase = (camelString: string) => {
 };
 
 export const getIconFile = (
-  fileName: string,
+  fileNameOrUri: string,
   isRDFResource: boolean = false
 ) => {
-  if (fileName.endsWith("/")) {
-    return faWallet;
+  // Containers (ending with /) take priority over RDF resources
+  if (fileNameOrUri.endsWith("/")) {
+    return faFolder;
   }
   if (isRDFResource) return faIdCard;
 
   const imageExtensions = ["jpg", "jpeg", "png", "gif", "bmp", "webp"];
-  const extension = fileName.split(".")?.pop()?.toLowerCase();
+  const extension = fileNameOrUri.split(".")?.pop()?.toLowerCase();
   if (extension) {
     if (imageExtensions.includes(extension)) return faImage;
   }
